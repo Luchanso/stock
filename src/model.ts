@@ -1,13 +1,13 @@
 import * as finance from "yahoo-finance";
 
-const memoryDatabase: any = {};
+export const memoryDatabase: any = {};
 
-const setValue = (key: string, value: any) => {
+export const setValue = (key: string, value: any) => {
   memoryDatabase[key] = value;
   return value;
 }
 
-const getValue = (key: string): any => {
+export const getValue = (key: string): any => {
   return JSON.parse(JSON.stringify(memoryDatabase[key]));
 }
 
@@ -17,7 +17,9 @@ export const getStockInformation = async (symbols: string[]) => {
     modules: ['price']
   })) as finance.Quotes;
 
-  Object.values((quote) => {
-
+  Object.keys(data).forEach((symbol) => {
+    setValue(symbol, data[symbol]);
   });
+
+  return data;
 };
