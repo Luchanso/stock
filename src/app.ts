@@ -1,22 +1,26 @@
 import * as finance from "yahoo-finance";
+import * as fs from 'fs';
 import { actions } from "./data";
 import { getStocksByAction } from "./getStocksByAction";
 import { prettyPrint } from "./prettyPrint";
 
 prettyPrint(getStocksByAction(actions), "Portfolio");
 
-finance.quote(
-  {
+(async () => {
+  const data = await finance.quote({
     symbol: "AAPL",
-    modules: ["price", "summaryDetail"] // see the docs for the full list
-  },
-  function(err: any, quotes: any) {
-    if (err) {
-      console.log(err);
-    }
+    modules: [
+      "price",
+      "summaryDetail",
+      "calendarEvents",
+      "defaultKeyStatistics",
+      "earnings",
+      "financialData",
+      "recommendationTrend",
+      "upgradeDowngradeHistory"
+    ] // see the docs for the full list
+  })
 
-    console.log(quotes);
-  }
-);
-
-// finance
+  // console.log();
+  fs.writeFile('./data.json', JSON.stringify(data, null, 2), () => {})
+})();
