@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should return error when stock history incorrect 1`] = `
+"Not found stock in history {
+  \\"type\\": 1,
+  \\"lot\\": {
+    \\"count\\": 123,
+    \\"currency\\": 1,
+    \\"price\\": 1,
+    \\"symbol\\": \\"AAA\\"
+  },
+  \\"time\\": 2.018
+}"
+`;
