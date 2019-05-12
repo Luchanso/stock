@@ -21,6 +21,8 @@ prettyPrint(getStocksByAction(actions), "Portfolio");
     ] // see the docs for the full list
   })
 
+
+
   // console.log();
   fs.writeFile('./data.json', JSON.stringify(data, null, 2), () => {})
 })();

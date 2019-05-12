@@ -97,8 +97,46 @@ declare module "yahoo-finance" {
     tradeable?: boolean;
   };
 
+  export type Price = {
+    maxAge?: number;
+    preMarketSource?: string;
+    postMarketChangePercent?: number;
+    postMarketChange?: number;
+    postMarketTime?: Date;
+    postMarketPrice?: number;
+    postMarketSource?: string;
+    regularMarketChangePercent?: number;
+    regularMarketChange?: number;
+    regularMarketTime?: Date;
+    priceHint?: number;
+    regularMarketPrice?: number;
+    regularMarketDayHigh?: number;
+    regularMarketDayLow?: number;
+    regularMarketVolume?: number;
+    averageDailyVolume10Day?: number;
+    averageDailyVolume3Month?: number;
+    regularMarketPreviousClose?: number;
+    regularMarketSource?: string;
+    regularMarketOpen?: number;
+    exchange?: string;
+    exchangeName?: string;
+    exchangeDataDelayedBy?: number;
+    marketState?: string;
+    quoteType?: string;
+    symbol?: string;
+    underlyingSymbol?: any;
+    shortName?: string;
+    longName?: string;
+    currency?: string;
+    quoteSourceName?: string;
+    currencySymbol?: string;
+    fromCurrency?: any;
+    lastMarket?: any;
+    marketCap?: number;
+  };
+
   export type Quote = {
-    price?: any; // TODO: описать тип
+    price?: Price; // TODO: описать тип
     summaryDetail?: SummaryDetail;
     recommendationTrend?: RecommendationTrend;
     earnings?: Earnings;
