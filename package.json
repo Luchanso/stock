@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "ts-node src/app",
-    "test": "jest"
+    "test": "jest && yarn start"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
