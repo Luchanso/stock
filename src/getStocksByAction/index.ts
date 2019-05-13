@@ -5,7 +5,7 @@ import {
   RemoveStockAction
 } from "../types";
 
-type StockShareMap = {
+export type StockShareMap = {
   [symbol: string]: number;
 };
 

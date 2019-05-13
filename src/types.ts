@@ -1,6 +1,6 @@
 export enum Currency {
-  usd,
-  rub
+  usd = 'USD',
+  rub = 'RUB'
 }
 
 export enum ActionTypes {

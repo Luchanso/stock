@@ -14,7 +14,7 @@ export const getValue = (key: string): any => {
 export const getStockInformation = async (symbols: string[]) => {
   const data: finance.Quotes = (await finance.quote({
     symbols,
-    modules: ['price']
+    modules: ['summaryDetail']
   })) as finance.Quotes;
 
   Object.keys(data).forEach((symbol) => {

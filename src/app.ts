@@ -1,10 +1,17 @@
 import { actions } from "./data";
-import { getStocksByAction } from "./getStocksByAction";
+import { getStocksByAction, StockShareMap } from "./getStocksByAction";
 import { prettyPrint } from "./prettyPrint";
 import { getStockInformation } from "./model";
-
-prettyPrint(getStocksByAction(actions), "Portfolio");
+import { Quotes } from "yahoo-finance";
+import { getTotalProfit } from "./getTotalProfit";
 
 (async () => {
-  getStockInformation(['AAPL', 'T']);
+  const stocks = getStocksByAction(actions);
+  prettyPrint(stocks, "Stock list from actions");
+
+  const quotes = await getStockInformation(Object.keys(stocks));
+  prettyPrint(quotes, "Quotes information");
+
+  const total = getTotalProfit(stocks, quotes);
+  prettyPrint(total, "Total profit");
 })();
